@@ -35,7 +35,7 @@ search_area = driver.find_element_by_class_name("_3FRCZ")
 receipientName = input("Enter the name of the person with whom you want to chat(Exactly as you saved in your phone): ")
 search_area.send_keys(receipientName)
 
-time.sleep(5)
+time.sleep(60)
 try:
     resultChatElement = driver.find_element_by_class_name("_2kHpK")
 except:
@@ -51,10 +51,10 @@ chatMessage = input("Enter the message which you want to send: ")
 
 numberOfMessages = int(input("Enter the number of times you want to send this message(Recommended less than 30): "))
 
-confirmMessage = input("Are you sure(Y/N): ")
+confirmMessage = input("Are you sure(Yes/No): ")
 
 
-if confirmMessage == "N":
+if confirmMessage == "No":
     print("Thank you for using.")
     driver.quit()
     exit()
@@ -65,7 +65,7 @@ else:
 
     actualChatArea = textAreas[1]
 
-    for i in range(numberOfMessages):
+    for i in range(numberOfMessages+30):
         actions = ActionChains(driver)
         actions.move_to_element(actualChatArea).click(actualChatArea).perform()
         actualChatArea.send_keys(chatMessage)
@@ -75,5 +75,5 @@ else:
 # To wait until all the messages are sent
 time.sleep(10)
 
-print("Your successfully spammed your friend!")
+print("Your successfully spammed your friend!+30 then u wished")
 driver.quit()
